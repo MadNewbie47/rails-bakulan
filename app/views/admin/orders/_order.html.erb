@@ -1,0 +1,31 @@
+<div id="<%= dom_id order %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Customer email:</strong>
+    <%= order.customer_email %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Fullfillment:</strong>
+    <%= order.fullfillment %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Address:</strong>
+    <%= order.address %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Grand price:</strong>
+    <%= order.grand_price %>
+  </p>
+
+  <% if order.order_products.any? %>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Products:</strong>
+    <% order.order_products.each do |op| %>
+      <%= "#{op.product.name} #{op.size} #{op.quantity}"%>
+    <% end %>
+  </p>
+  <% end %>
+
+</div>
